@@ -1,7 +1,7 @@
 # research
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework and the
-https://modelcontextprotocol.io/[Model Context Protocol] to implement a simple agentic app using multiple MCP servers and Quarkus + LangChain4j.
+[Model Context Protocol](https://modelcontextprotocol.io/) to implement a simple agentic app using multiple MCP servers and Quarkus + LangChain4j.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
