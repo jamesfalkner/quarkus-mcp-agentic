@@ -9,6 +9,8 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 You'll need `node` and `npm` installed (this is used to start mcp services). Follow the [recommended way](https://nodejs.org/en/download) to install for your system.
 
+You will also need a container environment available (e.g. Podman or Docker) if you want to see built-in telemetry, which you can access once the app is up by going to the Dev UI and finding the Grafana link. If you don't have a container environment, comment out the part in `application.properties` dealing with telemetry.
+
 Create a directory called `playground` at the root folder of your clone if you wish to use the `filesystem` MCP server (or change the name in `application.properties` to some other name, but the directory must exist)
 
 Several of the MCP services require API keys. Here are links to get the keys:
@@ -37,6 +39,36 @@ But for testing, you can run your application in dev mode that enables live codi
 ./mvnw compile quarkus:dev
 ```
 In Dev mode, you can use the Dev UI to chat with the LLM you've configured by going to "Extensions" and clicking "Chat" to chat. You'll find the system message pre-filled in from the content from [Bot.java](src/main/java/Bot.java)
+
+> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+
+## Testing the app
+
+There is a simple frontend application to test the assistant - access `http://localhost:8080` and you should see:
+
+Issue some sample prompts to see how it uses agent reasoning to invoke the various tools:
+
+```console
+My name is John Doe. I am a member of a team of 2 myself and Daniel Jane. I like Asian food, while Daniel is on a strict gluten-free diet.
+
+Please find one good restaurant in Atlanta, GA with the highest rating that meets
+the team's dietary needs and preferences. Then, invite the team to a lunch
+at 12pm next Wednesday using the slack channel "#lunchtime".
+In your message, include the name and description of the restaurant, the time and
+date of the lunch, and driving directions from Georgia World Congress Center.
+Also create an ICS calendar file for me to use in my calendar in the
+"playground/calendar" directory.`
+```
+
+And some simpler follow-up prompts like:
+
+* What was the reasoning you used to arrive at that recommendation?
+* How did you choose the restaurant?
+* What actions did you take for each step and which tools did you use?
+* Why did you search for gluten-free restaurants?
+* What did you remember about each person on the team?
+
+In Dev mode, you can also use the Dev UI to chat with the LLM you've configured by going to "Extensions" and clicking "Chat" to chat. You'll find the system message pre-filled in from the content from [Bot.java](src/main/java/Bot.java)
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
 
