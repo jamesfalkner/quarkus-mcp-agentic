@@ -2,8 +2,6 @@ import io.quarkus.websockets.next.OnError;
 import io.quarkus.websockets.next.OnOpen;
 import io.quarkus.websockets.next.OnTextMessage;
 import io.quarkus.websockets.next.WebSocket;
-import io.quarkus.websockets.next.WebSocketClientConnection;
-import io.quarkus.websockets.next.WebSocketConnection;
 import io.smallrye.mutiny.Multi;
 
 @WebSocket(path = "/bot")
@@ -28,4 +26,5 @@ public class BotWebsocket {
     public Multi<String> onTextMessage(String message) {
         return bot.chat(message);
     }
+
 }

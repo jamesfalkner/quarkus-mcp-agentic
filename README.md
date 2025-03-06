@@ -46,7 +46,9 @@ In Dev mode, you can use the Dev UI to chat with the LLM you've configured by go
 
 There is a simple frontend application to test the assistant - access `http://localhost:8080` and you should see:
 
-Issue some sample prompts to see how it uses agent reasoning to invoke the various tools:
+![landing page](docs/landingpage.png)
+
+Click on the chat box icon at the lower left and issue some sample prompts to see how it uses agent reasoning to invoke the various tools:
 
 ```console
 My name is John Doe. I am a member of a team of 2 myself and Daniel Jane. I like Asian food, while Daniel is on a strict gluten-free diet.
